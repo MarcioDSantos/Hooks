@@ -6,6 +6,7 @@ import SectionTitle from '../../components/layout/SectionTitle'
 const UseState = (props) => {
     const [count, setCount] = useState(0)
     const [name, setName] = useState("")
+    const [starAnimation, setStartAnimation] = useState(false);
     
     return (
         <div className="UseState">
@@ -15,7 +16,7 @@ const UseState = (props) => {
             <SectionTitle title="Exercício #01"/>
              <div className="center">
                 <span className="text">{count}</span>
-                <div>
+                <div shouldStartAnimation={starAnimation}>
                     <button className="btn" onClick={() => setCount(count - 1)}>-1</button>
                     <button className="btn" onClick={() => setCount(count + 1)}>+1</button>
                     <button className="btn" onClick={() => setCount(current => current + 1000)}>1000</button>

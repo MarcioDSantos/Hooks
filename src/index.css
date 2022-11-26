@@ -6,6 +6,7 @@ body {
 .text {
     font-weight: 300;
     font-size: 5rem;
+    align-items: center;
 }
 
 .red {
@@ -25,10 +26,12 @@ body {
     padding: 15px 35px;
     border: none;
     outline: none;
-    background-color: #0092c3;
+    background-color: #c300a3;
 
     font-size: 3rem;
     color: #fff;
+
+    transition-property: background-color 1s linear 1s;
 }
 
 .center {
