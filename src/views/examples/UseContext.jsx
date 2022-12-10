@@ -17,10 +17,10 @@ const UseContext = (props) => {
         })
     }
 
-    const {number, text, setNumber, setText} = useContext(AppContext)
+    const { number, text, setNumber, setText } = useContext(AppContext)
 
-    useEffect(function() {
-        if(number > 1250) {
+    useEffect(function () {
+        if (number > 1250) {
             setText('Eita!!!!')
         }
     }, [number])
@@ -51,9 +51,9 @@ const UseContext = (props) => {
                 <span className="text">{number}</span>
                 <div>
                     <button className="btn"
-                    onClick={() => setNumber(number - 1)}>-1</button>
+                        onClick={() => setNumber(number - 1)}>-1</button>
                     <button className="btn"
-                    onClick={() => setNumber(number + 1)}>+1</button>
+                        onClick={() => setNumber(number + 1)}>+1</button>
                 </div>
             </div>
         </div>
