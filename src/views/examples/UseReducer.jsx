@@ -3,25 +3,25 @@ import { useReducer } from 'react'
 import PageTitle from '../../components/layout/PageTitle'
 
 const initialState = {
-    user: [],
+    cart: [],
     user: null,
     products: [],
     number: 0
 }
 
 function reducer(state, action) {
-    switch (action.tape) {
+    switch (action.type) {
         case 'number_add2':
             return { ...state, number: state.number + 2 }
-            case 'login':
-                return{...state, user: {name: 'leonardo'}}
+        case 'login':
+            return { ...state, user: { name: action.payload } }
         default:
             return state
     }
 }
 
 const UseReducer = (props) => {
-    const [state, exec] = useReducer(reducer, initialState)
+    const [state, dispatch] = useReducer(reducer, initialState)
 
     return (
         <div className="UseReducer">
@@ -34,15 +34,15 @@ const UseReducer = (props) => {
                 {state.user ? (
                     <span className="text">{state.user.name}</span>
                 ) : (
-                    <span className="text">{state.user.name}</span>
+                    <span className="text">Sem usuário</span>
                 )}
-                
+
                 <span className="text">{state.number}</span>
                 <div>
                     <button className="btn"
-                    onClick={() => exec({type: 'login'})}></button>
+                        onClick={() => dispatch({ type: 'login', payload: 'Maria' })}>Login</button>
                     <button className="btn"
-                    onClick={() => exec({type: 'numberAdd2'})}>+2</button>
+                        onClick={() => dispatch({ type: 'number_add2' })}>+2</button>
                 </div>
             </div>
         </div>
